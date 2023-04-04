@@ -32,11 +32,11 @@ def directory_(json_file: str, csv_file: str, pickle_file, dir_path: str) -> Non
                 for ele in os.scandir(string):
                     size += os.stat(ele).st_size
                 dict_file_or_dir[i]['size'] = str(size)
-
+                dict_file_or_dir[i]['parent'] = path.split('\\')[-2]
             elif os.path.isfile(path + '\\' + i):
                 dict_file_or_dir[i] = {'entity': 'file'}
                 dict_file_or_dir[i]['size'] = str(os.path.getsize(path + '\\' + i))
-            dict_file_or_dir[i]['parent'] = path.split('\\')[-2]
+                dict_file_or_dir[i]['parent'] = path.split('\\')[-1]
 
     print(dict_file_or_dir)
     with(
