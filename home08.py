@@ -41,7 +41,7 @@ def directory_(json_file: str, csv_file: str, pickle_file, dir_path: str) -> Non
     print(dict_file_or_dir)
     with(
         open(json_file, 'w', encoding='utf-8') as js_,
-        open(csv_file, 'w', encoding='utf-8') as csv_,
+        open(csv_file, 'w', newline='', encoding='utf-8') as csv_,
         open(pickle_file, 'wb') as pick_,
     ):
         json.dump(dict_file_or_dir, js_, indent=2)
